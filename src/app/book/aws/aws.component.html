@@ -1,0 +1,43 @@
+<div class="container">
+
+  
+    <div class="row">
+    
+    <div>
+    
+    <div class = "row">
+    <div class="col-6">
+      <h2>Aws Books</h2> 
+    </div>
+      <table class="table table-dark">
+        <tr>
+          <th>
+            Book Name
+          </th>
+          <th scope="col-3">
+            Author
+          </th>
+          <th scope="col-3">
+            Description
+          </th>
+          <th scope="col-3">
+           Cost
+          </th>
+          <th scope="col-3">
+            Image
+           </th>
+        </tr>
+    
+        <tr *ngFor="let book of books" (click) = onSelect(book)>
+          <td>{{book.bookName}}</td>
+          <td>{{book.author}}</td>
+          <td>{{book.bookDescription  }}</td>
+          <td>{{book.cost}}</td>
+          <td><img src="{{book.bookImage}}" alt= "Book Image" /></td>
+        </tr>
+      </table>
+    </div>
+    
+    </div>
+    
+    </div>
