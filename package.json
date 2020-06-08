@@ -25,7 +25,9 @@
     "angular-bootstrap-md": "^9.3.1",
     "bootstrap": "^4.5.0",
     "core-js": "^3.6.5",
-    "rxjs": "~6.5.5"
+    "ngx-bootstrap": "^5.6.1",
+    "rxjs": "~6.5.5",
+    "rxjs-compat": "^6.5.5"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.901.7",

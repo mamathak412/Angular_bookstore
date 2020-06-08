@@ -6,14 +6,42 @@
     OnlineBookStore.com
   </h3>
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-  <ul class="nav justify-content-center">
-       <li class="nav-item"><a class="nav-link" routerLink="/books">Books</a></li>
-      <li class="nav-item"> <a class="nav-link" routerLink="/devops">Devops</a></li>
-      <li class="nav-item"> <a class="nav-link" routerLink="/jenkins">Jenkins</a></li>
-      <li class="nav-item"> <a class="nav-link" routerLink="/aws">Aws</a></li>
-      <li class="nav-item"> <a class="nav-link" routerLink="/books">Linux</a></li>
-      <li class="nav-item"> <a class="nav-link" routerLink="/books">Scripting</a></li>
-      
+
+  <ul class="nav nav-tabs">
+
+    <li class="nav-item" dropdown >
+      <a dropdownToggle class="nav-link dropdown-toggle">
+        Books
+      </a>
+      <div *dropdownMenu class="dropdown-menu">
+        <a class="dropdown-item" href="/books">All Books</a>
+        <a class="dropdown-item" href="/devops">Devops</a>
+        <a class="dropdown-item" href="/jenkins">Jenkins</a>
+        <a class="dropdown-item" href="/aws">Aws</a>
+        <a class="dropdown-item" href="/scripting">Scripting</a>
+        <a class="dropdown-item" href="/linux">Linux</a>
+        <a class="dropdown-item" href="/java">Java</a>
+        <a class="dropdown-item" href="/maven">Maven</a>
+        <a class="dropdown-item" href="/others">Others</a>
+      </div>
+    </li>
+
+    <li class="nav-item" dropdown >
+      <a dropdownToggle class="nav-link dropdown-toggle">
+        Documents
+      </a>
+      <div *dropdownMenu class="dropdown-menu">
+        <a class="dropdown-item" href="/books">All Documents</a>
+        <a class="dropdown-item" href="/devops">Devops</a>
+        <a class="dropdown-item" href="/jenkins">Jenkins</a>
+        <a class="dropdown-item" href="/aws">Aws</a>
+        <a class="dropdown-item" href="/aws">Scripting</a>
+        <a class="dropdown-item" href="/aws">Linux</a>
+        <a class="dropdown-item" href="/aws">Java</a>
+        <a class="dropdown-item" href="/aws">Others</a>
+      </div>
+    </li>
+   
 </ul>
 </nav>
   </div>

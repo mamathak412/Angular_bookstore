@@ -30,7 +30,7 @@ onSelect(book : Book): void{
 getBooks() : void {
   console.log("Inside component "+ this.books);
   this.bookService
-  .getAwsBooks()
+  .getBooksByCategory("Aws")
   .subscribe((data:any) => {
     console.log(data);
     this.books = data;

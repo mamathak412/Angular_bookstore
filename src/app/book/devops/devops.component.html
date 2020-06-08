@@ -1,8 +1,10 @@
+
+
 <div class="container">
 
-  
+  <a routerLink="/addbook" (click)="addBook()">Add new book</a>
+
     <div class="row">
-    
     <div>
     
     <div class = "row">
@@ -18,22 +20,15 @@
             Author
           </th>
           <th scope="col-3">
-            Description
+            Reference Guide
           </th>
-          <th scope="col-3">
-           Cost
-          </th>
-          <th scope="col-3">
-            Image
-           </th>
         </tr>
     
         <tr *ngFor="let book of books" (click) = onSelect(book)>
           <td>{{book.bookName}}</td>
           <td>{{book.author}}</td>
-          <td>{{book.bookDescription  }}</td>
-          <td>{{book.cost}}</td>
-          <td><img src="{{book.bookImage}}" alt= "Book Image" /></td>
+          <td><a href="{{book.link}}">Click Here</a></td>
+          <td> <button type="submit" class="btn btn-primary" (click) = "deleteBook()" >Delete</button></td>
         </tr>
       </table>
     </div>

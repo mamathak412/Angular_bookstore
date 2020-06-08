@@ -7,9 +7,10 @@ export class Book{
     cost ?: string;
     author ?: string;
     bookImage ?: any;
+    categoryName ?: any
 
     constructor(bookId? : string, bookName? : string, bookDescription? : string, rating? : string,
-        link? : string, cost ?: string, author ?: string, bookImage ?: any){
+        link? : string, cost ?: string, author ?: string, bookImage ?: any, categoryName ?: any){
         this.bookId = bookId;
         this.bookName = bookName;
         this.bookDescription = bookDescription;
@@ -18,5 +19,6 @@ export class Book{
         this.cost = cost;
         this.author = author;
         this.bookImage = bookImage;
+        this.categoryName = categoryName;
     }
 }

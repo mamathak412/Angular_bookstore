@@ -15,48 +15,44 @@ const httpOptions = {
 })
 export class BookService {
 
-   private bookListUrl = 'http://localhost:9002/books';  
+   private bookUrl = 'http://localhost:9002/books';  
 
-   private devopbooktUrl = 'http://localhost:9002/books/Devops'; 
-   
-   private jenkinsbooktUrl = 'http://localhost:9002/books/Jenkins'; 
-
-   private awsbookUrl = 'http://localhost:9002/books/Aws'; 
-
-   private flowers : Book[] = [];
+   private books : Book[] = [];
 
   constructor(private messageService : MessageService, private httpClient : HttpClient) { }
 
   /** GET heroes from the server */
 getBooks(): Observable<Book[]> {
-  return this.httpClient.get<Book[]>(this.bookListUrl)
+  return this.httpClient.get<Book[]>(this.bookUrl)
   .pipe(
     catchError(this.handleError<Book[]>('getBooks', []))
   );
 }
 
 /** GET heroes from the server */
-getDevopsBooks(): Observable<Book[]> {
-  return this.httpClient.get<Book[]>(this.devopbooktUrl)
+getBooksByCategory(category: String): Observable<Book[]> {
+  const url = `${this.bookUrl}/${category}`; 
+  return this.httpClient.get<Book[]>(url)
   .pipe(
     catchError(this.handleError<Book[]>('getBooks', []))
   );
 }
 
-/** GET heroes from the server */
-getAwsBooks(): Observable<Book[]> {
-  return this.httpClient.get<Book[]>(this.awsbookUrl)
-  .pipe(
-    catchError(this.handleError<Book[]>('getBooks', []))
-  );
+/** Add devops book */
+addBook(book : Book): Observable<Book> {
+  const body=JSON.stringify(book);
+    console.log(body)
+  console.log("Before add service" + book);
+ return this.httpClient.post<Book>(this.bookUrl, body, httpOptions);
 }
 
-/** GET heroes from the server */
-getJenkinsBooks(): Observable<Book[]> {
-  return this.httpClient.get<Book[]>(this.jenkinsbooktUrl)
-  .pipe(
-    catchError(this.handleError<Book[]>('getBooks', []))
-  );
+/** DELETE: delete the hero from the server */
+deleteBook (bookName: String): Observable<{}> {
+  const url = `${this.bookUrl}/${bookName}`; 
+  return this.httpClient.delete(url, httpOptions)
+    .pipe(
+      catchError(this.handleError('book'))
+    );
 }
 
 /**

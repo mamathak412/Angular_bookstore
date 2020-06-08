@@ -1,0 +1,34 @@
+
+
+<div class="container">
+
+    <a routerLink="/adddocument" (click)="addDocument()">Add new document</a>
+  
+      <div class="row">
+      <div>
+      
+      <div class = "row">
+      <div class="col-6">
+        <h2>Linux Documents</h2> 
+      </div>
+        <table class="table table-dark">
+          <tr>
+            <th>
+              Document Name
+            </th>
+            <th scope="col-3">
+              Link
+            </th>
+          </tr>
+      
+          <tr *ngFor="let document of documents" (click) = onSelect(document)>
+            <td>{{document.document.Name}}</td>
+            <td><a href="{{document.link}}">Click Here</a></td>
+            <td> <button type="submit" class="btn btn-primary" (click) = "deleteDocument()" >Delete</button></td>
+          </tr>
+        </table>
+      </div>
+      
+      </div>
+      
+      </div>
