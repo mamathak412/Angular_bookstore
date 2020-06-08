@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Book } from './book';
-import { BookService } from './book.service';
+import { Document } from './document';
+import { DocumentService } from './document.service';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
@@ -8,32 +8,32 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   templateUrl: './book.component.html',
   styleUrls: ['./book.component.css']
 })
-export class BookComponent implements OnInit {
+export class DocumentComponent implements OnInit {
 
-  private books : Book[] = [];
+  private documents : Document[] = [];
 
-  selectedBook : Book;
+  selectedDocument : Document;
 
-  book : Book;
+  document : Document;
 
-  constructor(private http: HttpClient, private bookService: BookService) { }
+  constructor(private http: HttpClient, private documentService: DocumentService) { }
 
   ngOnInit() {
-      this.getBooks();
+      this.getDocuments();
   }
 
-  onSelect(book : Book): void{
-    console.log(book);
-    this.selectedBook = book;
+  onSelect(document : Document): void{
+    console.log(document);
+    this.selectedDocument = document;
   }
 
-  getBooks() : void {
-    console.log("Inside component "+ this.books);
-    this.bookService
-    .getBooks()
+  getDocuments() : void {
+    console.log("Inside component "+ this.documents);
+    this.documentService
+    .getDocuments()
     .subscribe((data:any) => {
       console.log(data);
-      this.books = data;
+      this.documents = data;
     });
   }
 }
