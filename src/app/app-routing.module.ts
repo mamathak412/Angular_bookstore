@@ -13,6 +13,7 @@ import { MavenComponent } from './book/maven/maven.component';
 import { OthersComponent } from './book/others/others.component';
 import { ScriptingComponent } from './book/scripting/scripting.component';
 
+import { DocumentComponent } from './document/document.component';
 import { DevopsDocComponent } from './document/devopsdoc/devopsdoc.component';
 import { JenkinsDocComponent } from './document/jenkinsdoc/jenkinsdoc.component';
 import { AwsDocComponent } from './document/awsdoc/awsdoc.component';
@@ -37,6 +38,7 @@ const routes: Routes = [
   {path : 'others', component:OthersComponent},
   {path : 'scripting', component:ScriptingComponent},
 
+  {path : 'document', component:DocumentComponent},
   {path : 'devopsdoc', component: DevopsDocComponent},
   {path : 'jenkinsdoc', component: JenkinsDocComponent},
   {path : 'awsdoc', component: AwsDocComponent},
