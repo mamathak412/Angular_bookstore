@@ -2,7 +2,7 @@
 
 <div class="container">
 
-  <a routerLink="/addbook" (click)="addBook()">Add new document</a>
+  <a routerLink="/adddoc">Add new document</a>
 
     <div class="row">
     <div>
@@ -24,7 +24,7 @@
         <tr *ngFor="let document of documents" (click) = onSelect(document)>
           <td>{{document.documentName}}</td>
           <td><a href="{{document.link}}">Click Here</a></td>
-          <td> <button type="submit" class="btn btn-primary" (click) = "deleteBook()" >Delete</button></td>
+          <td> <button type="submit" class="btn btn-primary" (click) = "deleteDelete()" >Delete</button></td>
         </tr>
       </table>
     </div>
