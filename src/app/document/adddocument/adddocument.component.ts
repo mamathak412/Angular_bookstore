@@ -4,9 +4,9 @@ import { DocumentService } from '../document.service';
 import { FormBuilder } from "@angular/forms";
 
 @Component({
-  selector: 'app-addbook',
-  templateUrl: './addbook.component.html',
-  styleUrls: ['./addbook.component.css']
+  selector: 'app-adddocument',
+  templateUrl: './adddocument.component.html',
+  styleUrls: ['./adddocument.component.css']
 })
 export class AddDocumentComponent implements OnInit {
 

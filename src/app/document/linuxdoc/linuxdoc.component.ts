@@ -4,9 +4,9 @@ import { Document } from '../document';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Component({
-  selector: 'app-linux',
-  templateUrl: './linux.component.html',
-  styleUrls: ['./linux.component.css']
+  selector: 'app-linuxdoc',
+  templateUrl: './linuxdoc.component.html',
+  styleUrls: ['./linuxdoc.component.css']
 })
 export class LinuxDocComponent implements OnInit {
 
