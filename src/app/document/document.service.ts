@@ -15,7 +15,7 @@ const httpOptions = {
 })
 export class DocumentService {
 
-   private documentUrl = 'http://135.254.163.44:9001/documents';  
+   private documentUrl = 'http://localhost:9001/documents';  
 
    private documents : Document[] = [];
 
@@ -48,11 +48,20 @@ addDocument(document : Document): Observable<Document> {
 
 /** DELETE: delete the hero from the server */
 deleteDocument (documentName: String): Observable<{}> {
+  console.log("Delete document by name " + documentName)
   const url = `${this.documentUrl}/${documentName}`; 
   return this.httpClient.delete(url, httpOptions)
     .pipe(
-      catchError(this.handleError('book'))
+      catchError(this.handleError('document'))
     );
+}
+
+searchBookByBookName(documentName : string): Observable<{}>{
+  const url = `${this.documentUrl}/search/${documentName}`; 
+  return this.httpClient.get<Document[]>(url)
+  .pipe(
+    catchError(this.handleError<Document[]>('getDocuments', []))
+  );
 }
 
 /**

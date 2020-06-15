@@ -20,7 +20,7 @@ export class AddDocumentComponent implements OnInit {
   }
 
   addDocument() : void{
-    console.log("Inside add document");
+    console.log("Inside add document" + this.document);
     this.documentService.addDocument(this.document)
       .subscribe(document => this.documents.push(document));
   }

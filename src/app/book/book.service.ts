@@ -15,7 +15,7 @@ const httpOptions = {
 })
 export class BookService {
 
-   private bookUrl = 'http://135.254.163.44:9001/books';  
+   private bookUrl = 'http://localhost:9001/books';  
 
    private books : Book[] = [];
 
@@ -48,6 +48,7 @@ addBook(book : Book): Observable<Book> {
 
 /** DELETE: delete the hero from the server */
 deleteBook (bookName: String): Observable<{}> {
+  console.log("Delete book by name " + bookName)
   const url = `${this.bookUrl}/${bookName}`; 
   return this.httpClient.delete(url, httpOptions)
     .pipe(
@@ -55,6 +56,13 @@ deleteBook (bookName: String): Observable<{}> {
     );
 }
 
+searchBookByBookName(bookName : string): Observable<{}>{
+  const url = `${this.bookUrl}/search/${bookName}`; 
+  return this.httpClient.get<Book[]>(url)
+  .pipe(
+    catchError(this.handleError<Book[]>('getBooks', []))
+  );
+}
 /**
  * Handle Http operation that failed.
  * Let the app continue.

@@ -16,6 +16,13 @@ export class JavaDocComponent implements OnInit {
 
   document : Document;
 
+  searchText: string;
+
+  // Pagination parameters.
+  p: Number = 1;
+  count: Number = 5;
+
+
   constructor(private http: HttpClient, private documentService: DocumentService) { }
 
   ngOnInit() {
@@ -31,6 +38,21 @@ getDocuments() : void {
   console.log("Inside component "+ this.documents);
   this.documentService
   .getDocumentsByCategory("Java")
+  .subscribe((data:any) => {
+    console.log(data);
+    this.documents = data;
+  });
+}
+
+deleteDocument(document : Document): void{
+  console.log("Inside component "+ document);
+  this.documentService.deleteDocument(document.documentName).subscribe();
+}
+
+searchDocument() : void{
+  console.log("Inside component "+ this.documents);
+  this.documentService
+  .searchBookByBookName(this.searchText)
   .subscribe((data:any) => {
     console.log(data);
     this.documents = data;

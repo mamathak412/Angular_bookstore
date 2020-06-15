@@ -14,6 +14,8 @@ export class AddbookComponent implements OnInit {
 
   private books : Book[] = [];
 
+  showMsg: boolean = false;
+
   constructor(private bookService : BookService) { }
 
   ngOnInit() {
@@ -22,13 +24,17 @@ export class AddbookComponent implements OnInit {
   addBook() : void{
     console.log("Inside add book");
     this.bookService.addBook(this.book)
-      .subscribe(book => this.books.push(book));
+      .subscribe(book => { 
+        this.books.push(book);
+        this.showMsg= true;
+      });
   }
 
   deleteBook() : void{
     console.log("Inside delete book");
     this.bookService.deleteBook(this.book.bookImage)
       .subscribe();
+      this.showMsg= true;
   }
 
   onFileUpload(event){

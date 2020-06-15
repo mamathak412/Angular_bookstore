@@ -16,6 +16,12 @@ export class BookComponent implements OnInit {
 
   book : Book;
 
+  searchText: string;
+
+   // Pagination parameters.
+   p: Number = 1;
+   count: Number = 5;
+
   constructor(private http: HttpClient, private bookService: BookService) { }
 
   ngOnInit() {
@@ -31,6 +37,16 @@ export class BookComponent implements OnInit {
     console.log("Inside component "+ this.books);
     this.bookService
     .getBooks()
+    .subscribe((data:any) => {
+      console.log(data);
+      this.books = data;
+    });
+  }
+
+  searchBook() : void{
+    console.log("Inside component "+ this.books);
+    this.bookService
+    .searchBookByBookName(this.searchText)
     .subscribe((data:any) => {
       console.log(data);
       this.books = data;

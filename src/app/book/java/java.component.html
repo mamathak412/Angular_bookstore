@@ -1,13 +1,25 @@
 <div class="container">
-  <div class="container">
-  <a routerLink="/addbook" (click)="addBook()">Add new book</a>
-  </div>
+  <table>
+    <td>
+      <a class="btn btn-primary" routerLink="/addbook" (click)="addBook()">Add new book</a>
+    </td>
+    <td >
+      <div class="input-group mb-3">
+        <input type="text" class="form-control" [(ngModel)]="searchText" placeholder="Search for Book" aria-label="Search" aria-describedby="button-addon2">
+        <div class="input-group-append">
+          <button class="btn btn-outline-secondary" (click)="searchBook()" type="button" id="button-addon2">Submit</button>
+        </div>
+      </div>
+    </td>
+  </table>
+</div>
+
   <div class="container">
       <div class = "row">
       <div class="col-6">
-        <h2>Java Books</h2> 
+        <h4>Java Books</h4> 
       </div>
-        <table class="table table-dark">
+        <table class="table table-bordered table-dark">
           <tr>
             <th>
               Book Name
@@ -20,15 +32,18 @@
             </th>
           </tr>
       
-          <tr *ngFor="let book of books" (click) = onSelect(book)>
+          <tr *ngFor="let book of books | paginate: { itemsPerPage: count, currentPage: p }" (click) = onSelect(book)>
             <td>{{book.bookName}}</td>
             <td>{{book.author}}</td>
             <td><a href="{{book.link}}">Click Here</a></td>
-            <td> <button type="submit" class="btn btn-primary" (click) = "deleteBook()" >Delete</button></td>
+            <td> <button type="submit" class="btn btn-primary btn-sm" (click) = "deleteBook(book)" >Delete</button></td>
           </tr>
         </table>
       </div>
-      
-      </div>
+
+      <!--Including the pagination control.-->
+<div class="text-right">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
       
       </div>

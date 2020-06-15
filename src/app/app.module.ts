@@ -6,6 +6,7 @@ import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -22,6 +23,17 @@ import { JavaComponent } from './book/java/java.component';
 import { MavenComponent } from './book/maven/maven.component';
 import { OthersComponent } from './book/others/others.component';
 
+import { DocumentComponent } from './document/document.component';
+import { DevopsDocComponent } from './document/devopsdoc/devopsdoc.component';
+import { JenkinsDocComponent } from './document/jenkinsdoc/jenkinsdoc.component';
+import { AwsDocComponent } from './document/awsdoc/awsdoc.component';
+import { AddDocumentComponent } from './document/adddocument/adddocument.component';
+import { ScriptingDocComponent } from './document/scriptingdoc/scriptingdoc.component';
+import { LinuxDocComponent } from './document/linuxdoc/linuxdoc.component';
+import { JavaDocComponent } from './document/javadoc/javadoc.component';
+import { MavenDocComponent } from './document/mavendoc/mavendoc.component';
+import { OthersDocComponent } from './document/othersdoc/othersdoc.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +48,17 @@ import { OthersComponent } from './book/others/others.component';
     LinuxComponent,
     JavaComponent,
     MavenComponent,
-    OthersComponent
+    OthersComponent,
+    DocumentComponent,
+    DevopsDocComponent,
+    JenkinsDocComponent,
+    AwsDocComponent,
+    AddDocumentComponent,
+    ScriptingDocComponent,
+    LinuxDocComponent,
+    JavaDocComponent,
+    MavenDocComponent,
+    OthersDocComponent
   ],
   imports: [
     BrowserModule,
@@ -46,7 +68,8 @@ import { OthersComponent } from './book/others/others.component';
     BrowserAnimationsModule,
     BsDropdownModule.forRoot(),
     TooltipModule.forRoot(),
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

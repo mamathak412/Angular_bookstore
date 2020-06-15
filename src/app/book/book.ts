@@ -1,5 +1,5 @@
 export class Book{
-    bookId ?: string;
+    objectId ?: any;
     bookName ?: string;
     bookDescription ?: string;
     rating ?: string;
@@ -9,9 +9,9 @@ export class Book{
     bookImage ?: any;
     categoryName ?: any
 
-    constructor(bookId? : string, bookName? : string, bookDescription? : string, rating? : string,
+    constructor(objectId? : string, bookName? : string, bookDescription? : string, rating? : string,
         link? : string, cost ?: string, author ?: string, bookImage ?: any, categoryName ?: any){
-        this.bookId = bookId;
+        this.objectId = objectId;
         this.bookName = bookName;
         this.bookDescription = bookDescription;
         this.rating = rating;

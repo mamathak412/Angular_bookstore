@@ -16,6 +16,13 @@ export class JavaComponent implements OnInit {
 
   book : Book;
 
+  searchText: string;
+
+  // Pagination parameters.
+  p: Number = 1;
+  count: Number = 5;
+
+
   constructor(private http: HttpClient, private bookService: BookService) { }
 
   ngOnInit() {
@@ -31,6 +38,21 @@ getBooks() : void {
   console.log("Inside component "+ this.books);
   this.bookService
   .getBooksByCategory("Java")
+  .subscribe((data:any) => {
+    console.log(data);
+    this.books = data;
+  });
+}
+
+deleteBook(book : Book): void{
+  console.log("Inside component "+ book);
+  this.bookService.deleteBook(book.bookName).subscribe();;
+}
+
+searchBook() : void{
+  console.log("Inside component "+ this.books);
+  this.bookService
+  .searchBookByBookName(this.searchText)
   .subscribe((data:any) => {
     console.log(data);
     this.books = data;
