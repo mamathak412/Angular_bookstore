@@ -15,7 +15,7 @@ const httpOptions = {
 })
 export class VideoService {
 
-   private videoUrl = 'http://localhost:9001/videos';  
+   private videoUrl = 'http://135.254.163.44:9001/videos';  
 
    private videos : Video[] = [];
 

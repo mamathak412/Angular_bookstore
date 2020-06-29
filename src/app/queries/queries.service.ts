@@ -15,7 +15,7 @@ const httpOptions = {
 })
 export class QueriesService {
 
-   private queriesUrl = 'http://localhost:9001/queries';  
+   private queriesUrl = 'http://135.254.163.44:9001/queries';  
 
    private queries : Queries[] = [];
 
