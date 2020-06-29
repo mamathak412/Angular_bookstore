@@ -1,0 +1,44 @@
+<div class="container">
+    <table>
+      <td>
+        <a class="btn btn-primary" routerLink="/addvideo" >Add new video</a>
+      </td>
+      <td >
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" [(ngModel)]="searchText" placeholder="Search for Video" aria-label="Search" aria-describedby="button-addon2">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary"  (click)="searchVideo()" type="button" id="button-addon2">Submit</button>
+          </div>
+        </div>
+      </td>
+    </table>
+  </div>
+      <div class="container">
+      
+      <div class = "row">
+      <div class="col-6">
+        <h4>Maven Video</h4> 
+      </div>
+        <table class="table table-border table-dark">
+          <tr>
+            <th>
+              Video Name
+            </th>
+            <th scope="col-3">
+              Link
+            </th>
+          </tr>
+      
+          <tr *ngFor="let video of videos | paginate: { itemsPerPage: count, currentPage: p }" (click) = onSelect(video)>
+            <td>{{video.videoName}}</td>
+            <td><a href="{{video.link}}">Click Here</a></td>
+            <td> <button type="submit" class="btn btn-primary btn-sm" (click) = "deleteVideo(video)" >Delete</button></td>
+          </tr>
+        </table>
+      </div>
+  
+      <!--Including the pagination control.-->
+  <div class="text-right">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+  </div>

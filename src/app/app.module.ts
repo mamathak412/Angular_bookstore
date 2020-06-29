@@ -33,6 +33,26 @@ import { LinuxDocComponent } from './document/linuxdoc/linuxdoc.component';
 import { JavaDocComponent } from './document/javadoc/javadoc.component';
 import { MavenDocComponent } from './document/mavendoc/mavendoc.component';
 import { OthersDocComponent } from './document/othersdoc/othersdoc.component';
+import { VideosComponent } from './videos/videos.component';
+import { QueriesComponent } from './queries/queries.component';
+import { AddvideoComponent } from './videos/addvideo/addvideo.component';
+import { AwsvideoComponent } from './videos/awsvideo/awsvideo.component';
+import { DevopsvideoComponent } from './videos/devopsvideo/devopsvideo.component';
+import { JavavideoComponent } from './videos/javavideo/javavideo.component';
+import { JenkinsvideoComponent } from './videos/jenkinsvideo/jenkinsvideo.component';
+import { LinuxvideoComponent } from './videos/linuxvideo/linuxvideo.component';
+import { MavenvideoComponent } from './videos/mavenvideo/mavenvideo.component';
+import { OthersvideoComponent } from './videos/othersvideo/othersvideo.component';
+import { ScriptingvideoComponent } from './videos/scriptingvideo/scriptingvideo.component';
+import { AddqueriesComponent } from './queries/addqueries/addqueries.component';
+import { AwsqueriesComponent } from './queries/awsqueries/awsqueries.component';
+import { DevopsqueriesComponent } from './queries/devopsqueries/devopsqueries.component';
+import { JavaqueriesComponent } from './queries/javaqueries/javaqueries.component';
+import { JenkinsqueriesComponent } from './queries/jenkinsqueries/jenkinsqueries.component';
+import { LinuxqueriesComponent } from './queries/linuxqueries/linuxqueries.component';
+import { MavenqueriesComponent } from './queries/mavenqueries/mavenqueries.component';
+import { OthersqueriesComponent } from './queries/othersqueries/othersqueries.component';
+import { ScriptingqueriesComponent } from './queries/scriptingqueries/scriptingqueries.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +78,27 @@ import { OthersDocComponent } from './document/othersdoc/othersdoc.component';
     LinuxDocComponent,
     JavaDocComponent,
     MavenDocComponent,
-    OthersDocComponent
+    OthersDocComponent,
+    VideosComponent,
+    QueriesComponent,
+    AddvideoComponent,
+    AwsvideoComponent,
+    DevopsvideoComponent,
+    JavavideoComponent,
+    JenkinsvideoComponent,
+    LinuxvideoComponent,
+    MavenvideoComponent,
+    OthersvideoComponent,
+    ScriptingvideoComponent,
+    AddqueriesComponent,
+    AwsqueriesComponent,
+    DevopsqueriesComponent,
+    JavaqueriesComponent,
+    JenkinsqueriesComponent,
+    LinuxqueriesComponent,
+    MavenqueriesComponent,
+    OthersqueriesComponent,
+    ScriptingqueriesComponent
   ],
   imports: [
     BrowserModule,

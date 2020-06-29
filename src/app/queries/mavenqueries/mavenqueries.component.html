@@ -1,0 +1,44 @@
+<div class="container">
+    <table>
+      <td>
+        <a class="btn btn-primary" routerLink="/addqueries" >Add new query</a>
+      </td>
+      <td >
+        <div class="input-group mb-3">
+          <input type="text" class="form-control" [(ngModel)]="searchText" placeholder="Search for Query" aria-label="Search" aria-describedby="button-addon2">
+          <div class="input-group-append">
+            <button class="btn btn-outline-secondary"  (click)="searchQuery()" type="button" id="button-addon2">Submit</button>
+          </div>
+        </div>
+      </td>
+    </table>
+  </div>
+      <div class="container">
+      
+      <div class = "row">
+      <div class="col-6">
+        <h4>Maven Query</h4> 
+      </div>
+        <table class="table table-border table-dark">
+          <tr>
+            <th>
+              Query Name
+            </th>
+            <th scope="col-3">
+              Link
+            </th>
+          </tr>
+      
+          <tr *ngFor="let query of queries | paginate: { itemsPerPage: count, currentPage: p }" (click) = onSelect(query)>
+            <td>{{query.queryName}}</td>
+            <td><a href="{{query.link}}">Click Here</a></td>
+            <td> <button type="submit" class="btn btn-primary btn-sm" (click) = "deleteQuery(query)" >Delete</button></td>
+          </tr>
+        </table>
+      </div>
+  
+      <!--Including the pagination control.-->
+  <div class="text-right">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+  </div>

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MessageService } from '../message.service';
-import { Book } from './book';
+import { Video } from './video';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable, of} from 'rxjs';
@@ -13,56 +13,54 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class BookService {
+export class VideoService {
 
-   private bookUrl = 'http://localhost:9001/books';  
+   private videoUrl = 'http://localhost:9001/videos';  
 
-   private books : Book[] = [];
+   private videos : Video[] = [];
 
   constructor(private messageService : MessageService, private httpClient : HttpClient) { }
 
-  /** GET heroes from the server */
-getBooks(): Observable<Book[]> {
-  return this.httpClient.get<Book[]>(this.bookUrl)
+getVideos(): Observable<Video[]> {
+  return this.httpClient.get<Video[]>(this.videoUrl)
   .pipe(
-    catchError(this.handleError<Book[]>('getBooks', []))
+    catchError(this.handleError<Video[]>('getVideos', []))
   );
 }
 
-/** GET heroes from the server */
-getBooksByCategory(category: String): Observable<Book[]> {
-  const url = `${this.bookUrl}/${category}`; 
-  return this.httpClient.get<Book[]>(url)
+getVideossByCategory(category: String): Observable<Video[]> {
+  const url = `${this.videoUrl}/${category}`; 
+  return this.httpClient.get<Video[]>(url)
   .pipe(
-    catchError(this.handleError<Book[]>('getBooks', []))
+    catchError(this.handleError<Video[]>('getVideos', []))
   );
 }
 
-/** Add devops book */
-addBook(book : Book): Observable<Book> {
-  const body=JSON.stringify(book);
+addVideo(video : Video): Observable<Video> {
+  const body=JSON.stringify(video);
     console.log(body)
-  console.log("Before add service" + book);
- return this.httpClient.post<Book>(this.bookUrl, body, httpOptions);
+  console.log("Before add service" + video);
+ return this.httpClient.post<Video>(this.videoUrl, body, httpOptions);
 }
 
 /** DELETE: delete the hero from the server */
-deleteBook (bookName: String): Observable<{}> {
-  console.log("Delete book by name " + bookName)
-  const url = `${this.bookUrl}/${bookName}`; 
+deleteVideo (videoName: String): Observable<{}> {
+  console.log("Delete video by name " + videoName)
+  const url = `${this.videoUrl}/${videoName}`; 
   return this.httpClient.delete(url, httpOptions)
     .pipe(
-      catchError(this.handleError('book'))
+      catchError(this.handleError('videoName'))
     );
 }
 
-searchBookByBookName(bookName : string): Observable<{}>{
-  const url = `${this.bookUrl}/search/${bookName}`; 
-  return this.httpClient.get<Book[]>(url)
+searchVideoByName(videoName : string): Observable<{}>{
+  const url = `${this.videoUrl}/search/${videoName}`; 
+  return this.httpClient.get<Video[]>(url)
   .pipe(
-    catchError(this.handleError<Book[]>('getBooks', []))
+    catchError(this.handleError<Video[]>('getDocuments', []))
   );
 }
+
 /**
  * Handle Http operation that failed.
  * Let the app continue.

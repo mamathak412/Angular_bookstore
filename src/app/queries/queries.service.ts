@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MessageService } from '../message.service';
-import { Book } from './book';
+import { Queries } from './queries';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable, of} from 'rxjs';
@@ -13,56 +13,57 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class BookService {
+export class QueriesService {
 
-   private bookUrl = 'http://localhost:9001/books';  
+   private queriesUrl = 'http://localhost:9001/queries';  
 
-   private books : Book[] = [];
+   private queries : Queries[] = [];
 
   constructor(private messageService : MessageService, private httpClient : HttpClient) { }
 
   /** GET heroes from the server */
-getBooks(): Observable<Book[]> {
-  return this.httpClient.get<Book[]>(this.bookUrl)
+getQueries(): Observable<Queries[]> {
+  return this.httpClient.get<Queries[]>(this.queriesUrl)
   .pipe(
-    catchError(this.handleError<Book[]>('getBooks', []))
+    catchError(this.handleError<Queries[]>('getQueries', []))
   );
 }
 
 /** GET heroes from the server */
-getBooksByCategory(category: String): Observable<Book[]> {
-  const url = `${this.bookUrl}/${category}`; 
-  return this.httpClient.get<Book[]>(url)
+getQueriesByCategory(category: String): Observable<Queries[]> {
+  const url = `${this.queriesUrl}/${category}`; 
+  return this.httpClient.get<Queries[]>(url)
   .pipe(
-    catchError(this.handleError<Book[]>('getBooks', []))
+    catchError(this.handleError<Queries[]>('getQueries', []))
   );
 }
 
 /** Add devops book */
-addBook(book : Book): Observable<Book> {
-  const body=JSON.stringify(book);
+addQueries(query : Queries): Observable<Queries> {
+  const body=JSON.stringify(query);
     console.log(body)
-  console.log("Before add service" + book);
- return this.httpClient.post<Book>(this.bookUrl, body, httpOptions);
+  console.log("Before add service" + query);
+ return this.httpClient.post<Queries>(this.queriesUrl, body, httpOptions);
 }
 
 /** DELETE: delete the hero from the server */
-deleteBook (bookName: String): Observable<{}> {
-  console.log("Delete book by name " + bookName)
-  const url = `${this.bookUrl}/${bookName}`; 
+deleteQueries (queryName: String): Observable<{}> {
+  console.log("Delete query by name " + queryName)
+  const url = `${this.queriesUrl}/${queryName}`; 
   return this.httpClient.delete(url, httpOptions)
     .pipe(
-      catchError(this.handleError('book'))
+      catchError(this.handleError('query'))
     );
 }
 
-searchBookByBookName(bookName : string): Observable<{}>{
-  const url = `${this.bookUrl}/search/${bookName}`; 
-  return this.httpClient.get<Book[]>(url)
+searchBookByBookName(queryName : string): Observable<{}>{
+  const url = `${this.queriesUrl}/search/${queryName}`; 
+  return this.httpClient.get<Queries[]>(url)
   .pipe(
-    catchError(this.handleError<Book[]>('getBooks', []))
+    catchError(this.handleError<Queries[]>('getQueries', []))
   );
 }
+
 /**
  * Handle Http operation that failed.
  * Let the app continue.

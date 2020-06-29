@@ -16,13 +16,18 @@ export class AddDocumentComponent implements OnInit {
 
   constructor(private documentService : DocumentService) { }
 
+  showMsg: boolean = false;
+
   ngOnInit() {
   }
 
   addDocument() : void{
     console.log("Inside add document" + this.document);
     this.documentService.addDocument(this.document)
-      .subscribe(document => this.documents.push(document));
+      .subscribe(document => {
+        this.documents.push(document)
+        this.showMsg= true;
+      });
   }
 
   deleteDocument() : void{
