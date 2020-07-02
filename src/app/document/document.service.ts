@@ -15,7 +15,7 @@ const httpOptions = {
 })
 export class DocumentService {
 
-   private documentUrl = 'http://localhost:9001/documents';  
+   private documentUrl = 'http://135.254.163.44:9001/documents';  
 
    private documents : Document[] = [];
 
