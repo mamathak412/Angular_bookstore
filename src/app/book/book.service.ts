@@ -15,7 +15,7 @@ const httpOptions = {
 })
 export class BookService {
 
-   private bookUrl = 'http://135.254.163.44:9001/books';  
+   private bookUrl = 'http://localhost:9001/books';  
 
    private books : Book[] = [];
 

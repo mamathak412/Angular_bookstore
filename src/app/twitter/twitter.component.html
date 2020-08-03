@@ -1,0 +1,21 @@
+<div class="container">
+   
+  </div>
+      <div class="container">
+      
+      <div class = "row">
+      <div class="col-6">
+        <h5>Twitters</h5> 
+      </div>
+        <table class="table table-border table-dark">
+          <tr *ngFor="let twitter of twitters | paginate: { itemsPerPage: count, currentPage: p }" (click) = onSelect(twitter)>
+            <td>{{twitter.twitterContent}}</td>
+          </tr>
+        </table>
+      </div>
+  
+      <!--Including the pagination control.-->
+  <div class="text-right">
+    <pagination-controls (pageChange)="p = $event"></pagination-controls>
+  </div>
+  </div>

@@ -30,12 +30,16 @@
           <th scope="col-3">
             Reference Guide
           </th>
+          <th scope="col-3">
+            Count
+          </th>
         </tr>
     
         <tr *ngFor="let book of books | paginate: { itemsPerPage: count, currentPage: p }" (click) = onSelect(book)>
           <td>{{book.bookName}}</td>
           <td>{{book.author}}</td>
-          <td><a href="{{book.link}}">Click Here</a></td>
+          <td><a href="{{book.link}}" (click)="clicked(book)">Click Here</a></td>
+          <td>{{book.count}}</td>
           <td> <button type="submit" class="btn btn-primary btn-sm" (click) = "deleteBook(book)" >Delete</button></td>
         </tr>
       </table>

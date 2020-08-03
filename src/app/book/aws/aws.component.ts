@@ -59,4 +59,11 @@ searchBook() : void{
   });
 }
 
+clicked(book: Book) : void{
+  console.log("Inside click method" + book.count + 1);
+  book.count = book.count + 1;
+  this.bookService.addBook(book)
+      .subscribe();
+}
+
 }

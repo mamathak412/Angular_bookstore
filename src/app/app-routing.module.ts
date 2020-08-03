@@ -45,6 +45,7 @@ import { LinuxqueriesComponent } from './queries/linuxqueries/linuxqueries.compo
 import { MavenqueriesComponent } from './queries/mavenqueries/mavenqueries.component';
 import { OthersqueriesComponent } from './queries/othersqueries/othersqueries.component';
 import { ScriptingqueriesComponent } from './queries/scriptingqueries/scriptingqueries.component';
+import { TwitterComponent } from './twitter/twitter.component';
 
 const routes: Routes = [
   {path : 'books', component: BookComponent},
@@ -91,7 +92,9 @@ const routes: Routes = [
   {path : 'linuxqueries', component: LinuxqueriesComponent},
   {path : 'mavenqueries', component:MavenqueriesComponent},
   {path : 'othersqueries', component:OthersqueriesComponent},
-  {path : 'scriptingqueries', component:ScriptingqueriesComponent}
+  {path : 'scriptingqueries', component:ScriptingqueriesComponent},
+
+  {path: 'twitter', component:TwitterComponent}
 ];
 
 @NgModule({

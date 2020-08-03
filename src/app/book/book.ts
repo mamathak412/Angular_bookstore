@@ -8,9 +8,10 @@ export class Book{
     author ?: string;
     bookImage ?: any;
     categoryName ?: any
+    count ?: number
 
     constructor(objectId? : string, bookName? : string, bookDescription? : string, rating? : string,
-        link? : string, cost ?: string, author ?: string, bookImage ?: any, categoryName ?: any){
+        link? : string, cost ?: string, author ?: string, bookImage ?: any, categoryName ?: any, count ?: number){
         this.objectId = objectId;
         this.bookName = bookName;
         this.bookDescription = bookDescription;
@@ -20,5 +21,6 @@ export class Book{
         this.author = author;
         this.bookImage = bookImage;
         this.categoryName = categoryName;
+        this.count = count;
     }
 }

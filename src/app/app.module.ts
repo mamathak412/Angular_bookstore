@@ -53,6 +53,7 @@ import { LinuxqueriesComponent } from './queries/linuxqueries/linuxqueries.compo
 import { MavenqueriesComponent } from './queries/mavenqueries/mavenqueries.component';
 import { OthersqueriesComponent } from './queries/othersqueries/othersqueries.component';
 import { ScriptingqueriesComponent } from './queries/scriptingqueries/scriptingqueries.component';
+import { TwitterComponent } from './twitter/twitter.component';
 
 @NgModule({
   declarations: [
@@ -98,7 +99,8 @@ import { ScriptingqueriesComponent } from './queries/scriptingqueries/scriptingq
     LinuxqueriesComponent,
     MavenqueriesComponent,
     OthersqueriesComponent,
-    ScriptingqueriesComponent
+    ScriptingqueriesComponent,
+    TwitterComponent
   ],
   imports: [
     BrowserModule,
